@@ -1,0 +1,38 @@
+Secure site by XCA Atual Kahate method
+    mkdir demosumedh
+    cd demosumedh/
+    ls
+    sudo systemctl status apache2
+    sudo ufw allow apache2
+    sudo ufw allow Apache
+    sudo a2enmod ssl
+    sudo vim /etc/apache2/sites-available/
+    cd /etc/apache2/sites-available/
+    ls
+    cp akash.conf goli.conf
+    sudo cp akash.conf goli.conf
+    sudo vim goli.conf 
+  
+  
+  <VirtualHost *:443>
+	ServerName  www.goli.com
+	DocumentRoot  /var/www/html
+
+	SSLEngine on
+	SSLCertificateFile  /home/mrrobot/demosumedh/www.goli.com.pem →endpointcert
+	SSLCertificateKeyFile  /home/mrrobot/demosumedh/goli_key.pem —>endpointkey
+	SSLCACertificateFile  /home/mrrobot/demosumedh/rootca.crt —> rootcert
+
+  </VirtualHost>
+
+  
+  
+  cd ..
+   ls
+  sudo vim apache2.conf   — ServerName www.goli.com
+  sudo vim /etc/hosts 
+  sudo a2ensite goli.conf 
+  systemctl reload apache2
+  host -t a www.goli.com
+
+Rootca —> certificateupload authorities
